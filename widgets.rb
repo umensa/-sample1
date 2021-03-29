@@ -6,4 +6,4 @@ end
 
 puts "Welcome to the widget store!"
 answer = ask("How many widgets are you ordering?")
-puts "you entered " + answer + " widgets"
+puts "you entered #{answer} widgets"
