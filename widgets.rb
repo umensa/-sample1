@@ -1,6 +1,6 @@
 def ask(question)
 	print question + " "
-	gets
+	gets.chomp
 end
 
 puts "Welcome to the widget store!"
