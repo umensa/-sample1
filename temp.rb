@@ -1,9 +1,10 @@
-puts "first line\nsecond line"
-puts "\tnew paragraph"
-puts "He said, \"Whoa.\""
+string = "AA"
+puts string.length.even?
 
-puts "Double-quoted strings can hold single quotes: ''"
-puts 'Single-quoted strings can hold double quotes: ""'
-# But...
-puts "Double-quotes in double-quoted strings need to be \"escaped\"."
-puts 'Single-quotes in single-quoted strings need to be \'escaped\'.'
+puts "a string".length
+puts "another string".upcase
+puts "a third string".reverse
+
+puts 7.even?
+puts -12.abs
+puts 5.next
