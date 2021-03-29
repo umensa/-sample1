@@ -5,5 +5,5 @@ end
 
 puts "Welcome to the widget store!"
 answer = ask("How many widgets are you ordering?")
-puts "you entered #{answer} widgets"
-p answer
+number = answer.to_i
+puts "For #{answer} widgets, your total is: $#{number * 10}"
