@@ -1,15 +1,9 @@
-def wait(seconds)
-	puts "waiting..."
-	sleep seconds
-	puts "Done"
-end
+puts "first line\nsecond line"
+puts "\tnew paragraph"
+puts "He said, \"Whoa.\""
 
-def count_to_three
-	puts 1
-	puts 2
-	puts 3
-end
-
-count_to_three
-wait 1
-wait 3
+puts "Double-quoted strings can hold single quotes: ''"
+puts 'Single-quoted strings can hold double quotes: ""'
+# But...
+puts "Double-quotes in double-quoted strings need to be \"escaped\"."
+puts 'Single-quotes in single-quoted strings need to be \'escaped\'.'
