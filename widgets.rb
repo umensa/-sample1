@@ -4,8 +4,17 @@ def ask(question)
 end
 
 # New method here
+# Updated to give discounts based on quantity
 def price(quantity)
- 	quantity * 10
+	if quantity >= 100
+		price_per_unit = 8
+	end
+	if quantity >= 50
+		price_per_unit = 9
+	else
+		price_per_unit = 10
+	end
+	quantity * price_per_unit
  end
 
 puts "Welcome to the widget store!"
