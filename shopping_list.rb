@@ -17,21 +17,28 @@ def add_list_item
 	return hash
 end
 
+def print_seperator(character="-")
+	puts character * 70
+end
+
 def print_list(list)
 	puts "List: #{list['name']}"
-	puts "-----"
+	print_seperator()
 
 	list["items"].each do |item|
-		puts "Item: " + item['name']
-		puts "quantity: " + item['quantity'].to_s
-		puts "-----"
+		puts "\tItem: " + item['name'] + "\t\t\t" +
+		"quantity: " + item['quantity'].to_s
 	end
+	print_seperator()
 end
 
 list = create_list()
-puts list.inspect
+
+puts "Great! Add some items to your list."
+
+list['items'].push(add_list_item())
+list['items'].push(add_list_item())
 list['items'].push(add_list_item())
 
-puts list.inspect
-
+puts "Here's your list:\n"
 print_list(list)
