@@ -1,23 +1,30 @@
 class Name
+	def initialize(title, first_name, middle_name, last_name)
+		@title = title
+		@first_name = first_name
+		@middle_name = middle_name
+		@last_name = last_name
+	end
+
 	def title
-		"Mr."
+		@title
 	end
 
 	def first_name
-		"Mohamed"
+		@first_name
 	end
 
 	def middle_name
-		""
+		@middle_name
 	end
 
 	def last_name
-		"Zouari"
+		@last_name
 	end
 end
 
-name = Name.new
-puts name.title
-puts name.first_name
-puts name.middle_name
-puts name.last_name
+name = Name.new("Mr.", "Mohamed", "", "Zouari")
+puts name.title + " " +
+	name.first_name + " " +
+	name.middle_name + " " +
+	name.last_name
