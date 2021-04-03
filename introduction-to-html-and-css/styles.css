@@ -208,3 +208,9 @@ h3 {
   color: maroon;
   letter-spacing: .5px;
 }
+
+.card-title {
+  text-align: center;
+  border: solid black 3px;
+  border-radius: 50%;
+}
