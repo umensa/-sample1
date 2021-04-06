@@ -19,6 +19,17 @@ class Monster
     block.call
   end
 
+  def print_scoreboard
+    puts '---------------------------------------'
+    puts "#{name} scoreboard"
+    puts '---------------------------------------'
+    puts "- Screams: #{actions[:screams]}"
+    puts "- Scares: #{actions[:scares]}"
+    puts "- Runs: #{actions[:runs]}"
+    puts "- Hides: #{actions[:hides]}"
+    puts '---------------------------------------'
+  end
+
   def scream(&block)
     actions[:screams] += 1
     print "#{name} screams! "
@@ -45,8 +56,9 @@ class Monster
 end
 
 monster = Monster.new('Fluffy')
+
 monster.say { puts 'Welcome to my home.' }
-puts monster.actions
+
 monster.scream do
   puts 'BOO!'
 end
@@ -63,4 +75,5 @@ monster.hide do
   puts 'Runnig away and hiding!'
 end
 
-puts monster.actions
+puts "\n"
+monster.print_scoreboard
