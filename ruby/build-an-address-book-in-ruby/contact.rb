@@ -18,7 +18,7 @@ class Contact
 
   def full_name
     full_name = first_name
-    if !@middle_name.nil?
+    unless @middle_name.nil?
       full_name += ' '
       full_name += middle_name
     end
