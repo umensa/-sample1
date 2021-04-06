@@ -2,17 +2,65 @@
 
 # Class
 class Monster
-  attr_reader :name
+  attr_reader :name, :actions
 
   def initialize(name)
     @name = name
+    @actions = {
+      screams: 0,
+      scares: 0,
+      runs: 0,
+      hides: 0
+    }
   end
 
   def say(&block)
     print "#{name} says... "
     block.call
   end
+
+  def scream(&block)
+    actions[:screams] += 1
+    print "#{name} screams! "
+    block.call
+  end
+
+  def scare(&block)
+    actions[:scares] += 1
+    print "#{name} scares you! "
+    block.call
+  end
+
+  def run(&block)
+    actions[:runs] += 1
+    print "#{name} runs! "
+    block.call
+  end
+
+  def hide(&block)
+    actions[:hides] += 1
+    print "#{name} hides! "
+    block.call
+  end
 end
 
 monster = Monster.new('Fluffy')
 monster.say { puts 'Welcome to my home.' }
+puts monster.actions
+monster.scream do
+  puts 'BOO!'
+end
+
+monster.scare do
+  puts 'Go away!'
+end
+
+monster.run do
+  puts 'Going to get you!'
+end
+
+monster.hide do
+  puts 'Runnig away and hiding!'
+end
+
+puts monster.actions
