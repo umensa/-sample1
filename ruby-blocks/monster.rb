@@ -19,6 +19,10 @@ class Monster
     block.call
   end
 
+  def inspect
+    "<#{name}, #{actions}>"
+  end
+
   def print_scoreboard
     puts '---------------------------------------'
     puts "#{name} scoreboard"
@@ -51,7 +55,7 @@ class Monster
   def hide(&block)
     actions[:hides] += 1
     print "#{name} hides! "
-    block.call
+    block.call self if block_given?
   end
 end
 
@@ -71,8 +75,9 @@ monster.run do
   puts 'Going to get you!'
 end
 
-monster.hide do
+monster.hide do |m|
   puts 'Runnig away and hiding!'
+  puts m.inspect
 end
 
 puts "\n"

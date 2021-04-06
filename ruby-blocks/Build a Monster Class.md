@@ -128,3 +128,18 @@ end
 ``
 puts "\n"
 monster.print_scoreboard`
+
+##Build a Monster Class: Part 4##
+In this stage, we'll be working towards creating our own class that uses blocks, arrays, hashes, and more. 
+In this video, we'll learn a neat trick about yielding to blocks.
+
+#Techer's Notes
+
+
+**Code Samples**
+
+The following code will return the current object in context to a block:
+
+`yield self if block_given?`
+
+This is useful in cases where you would like to have access to the class inside of a block.
