@@ -44,7 +44,7 @@ class Contact
   end
 
   def first_last
-    first_name + ' ' + last_name
+    "#{first_name} #{last_name}"
   end
 
   def last_first
@@ -95,14 +95,3 @@ class Contact
     addresses.each { |address| puts address.to_s('short') }
   end
 end
-
-mohamed = Contact.new
-mohamed.first_name = 'Mohamed'
-mohamed.last_name = 'Zouari'
-mohamed.add_phone_number('Home', '123-456-7890')
-mohamed.add_phone_number('Work', '456-789-0123')
-mohamed.add_address('Home', '123 Main St.', '', 'Portland', 'OR', '12345')
-
-puts mohamed.to_s('full_name')
-mohamed.print_phone_numbers
-mohamed.print_addresses
