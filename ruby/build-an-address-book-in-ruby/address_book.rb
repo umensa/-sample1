@@ -14,8 +14,9 @@ class AddressBook
     loop do
       puts 'Address Book'
       puts 'a: Add Contact'
-      puts 'p: Print Address Book'
       puts 'e: Exit'
+      puts 'p: Print Address Book'
+      puts 's: Search'
       print 'Enter your choice: '
       input = gets.chomp.downcase
       case input
@@ -23,9 +24,16 @@ class AddressBook
         break
       when 'a'
         add_contact
+      when 's'
+        print 'Search term: '
+        search = gets.chomp
+        find_by_name(search)
+        find_by_phone_number(search)
+        find_by_address(search)
       when 'p'
         print_contat_list
       end
+      puts "\n"
     end
   end
 
