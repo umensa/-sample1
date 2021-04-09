@@ -10,6 +10,19 @@ class AddressBook
     @contacts = []
   end
 
+  def run
+    loop do
+      puts 'Address Book'
+      puts 'e: Exit'
+      print 'Enter your choice: '
+      input = gets.chomp.downcase
+      case input
+      when 'e'
+        break
+      end
+    end
+  end
+
   def print_results(search, results)
     puts search
     results.each do |contact|
@@ -65,25 +78,4 @@ class AddressBook
 end
 
 address_book = AddressBook.new
-
-mohamed = Contact.new
-mohamed.first_name = 'Mohamed'
-mohamed.last_name = 'Zouari'
-mohamed.add_phone_number('Home', '123-456-7890')
-mohamed.add_phone_number('Work', '456-789-0123')
-mohamed.add_address('Home', '123 Main St.', '', 'Portland', 'OR', '12345')
-
-nick = Contact.new
-nick.first_name = 'Nick'
-nick.last_name = 'Pettit'
-nick.add_phone_number('Home', '222-333-4444')
-nick.add_address('Home', '222 Two Lane', '', 'Portland', 'OR', '12345')
-
-address_book.contacts.push(mohamed)
-address_book.contacts.push(nick)
-
-# address_book.print_contat_list
-# address_book.find_by_name('e')
-# address_book.find_by_phone_number('2')
-
-address_book.find_by_address('two')
+address_book.run
