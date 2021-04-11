@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './contact'
+require 'yaml'
 
 # Class
 class AddressBook
@@ -8,6 +9,19 @@ class AddressBook
 
   def initialize
     @contacts = []
+    open
+  end
+
+  def open
+    if File.exist?('contacts.yml')
+      @contacts = YAML.load_file('contacts.yml')
+    end
+  end
+
+  def save
+    File.open('contacts.yml', 'w') do |file|
+      file.write(contacts.to_yaml)
+    end
   end
 
   def run
@@ -21,6 +35,7 @@ class AddressBook
       input = gets.chomp.downcase
       case input
       when 'e'
+        save
         break
       when 'a'
         add_contact
