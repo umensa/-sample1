@@ -1,56 +1,38 @@
-#Contact Class: Part 1
+#Phone Number Class
+In this video, we're going to create a class that will store our phone numbers.
 
 ##Techer's Notes
 
 **Code Samples**
 
-`class Contact
-  attr_writer :first_name, :middle_name, :last_name
+Phone Number Class (phone_number.rb):
+`class PhoneNumber
+  attr_accessor :kind, :number
 ``
-  def first_name
-    @first_name
-  end
-``
-  def middle_name
-    @middle_name
-  end
-``
-  def last_name
-    @last_name
-  end
-``
-  def full_name
-    full_name = first_name
-    if !@middle_name.nil?
-      full_name += " "
-      full_name += middle_name
-    end
-    full_name += ' '
-    full_name += last_name
-    full_name
+  def to_s
+    "#{kind}: #{number}"
   end
 end
-``
-jason = Contact.new
-jason.first_name = "Jason"
-jason.last_name = "Seifer"
-puts jason.full_name
-``
-nick = Contact.new
-nick.first_name = "Nick"
-nick.middle_name = "A"
-nick.last_name = "Pettit"
-puts nick.full_name
 `
 
-#Contact Class: Part 2
-
-##Techer's Notes
-
-**Code Samples**
-
-`class Contact
+Contact Class
+`
+require "./phone_number"
+``
+class Contact
   attr_writer :first_name, :middle_name, :last_name
+  attr_reader :phone_numbers
+``
+  def initialize
+    @phone_numbers = []
+  end
+``
+  def add_phone_number(kind, number)
+    phone_number = PhoneNumber.new
+    phone_number.kind = kind
+    phone_number.number = number
+    phone_numbers.push(phone_number)
+  end
 ``
   def first_name
     @first_name
@@ -105,18 +87,18 @@ puts nick.full_name
       first_last
     end
   end
+``
+  def print_phone_numbers
+    puts "Phone Numbers"
+    phone_numbers.each { |phone_number| puts phone_number }
+  end
 end
 ``
 jason = Contact.new
 jason.first_name = "Jason"
 jason.last_name = "Seifer"
-puts jason.to_s
+jason.add_phone_number("Home", "123-456-7890")
+jason.add_phone_number("Work", "456-789-0123")
 puts jason.to_s('full_name')
-puts jason.to_s('last_first')
-``
-nick = Contact.new
-nick.first_name = "Nick"
-nick.middle_name = "A"
-nick.last_name = "Pettit"
-puts nick.to_s('first_last')
+jason.print_phone_numbers
 `
